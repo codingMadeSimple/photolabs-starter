@@ -6,14 +6,26 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 
 const PhotoList = (props) => {
-  // console.log(props)
-  return (
+  console.log("props.photoData-----------------------", props);
+  if (props.photoData) {
+    return (
+      <ul className="photo-list">
+        {props.photoData.map(photoData => (
+          <PhotoListItem key={photoData.id} data={photoData} state={props.state} />
+        ))}
+      </ul>
+    );
+  };
+  if(props.photoArray){
+    // {console.log(props)}
+    return(
     <ul className="photo-list">
-      {props.photoData.map(photoData => (
-        <PhotoListItem onFavoriteChange={(favObj) => onFavoriteChange(favObj)} key={photoData.id} props={props} data={photoData} state={props.state} />
-      ))}
-    </ul>
-  );
+    {props.photoArray.map(element => (
+      
+      <PhotoListItem key={element.id} data={element} state={props.state} />
+    ))}
+  </ul>
+  )}
 };
 
 export default PhotoList;

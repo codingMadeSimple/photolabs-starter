@@ -31,7 +31,7 @@ const App = (props) => {
   const topicData = topics;
   const [favorite, setFavorite] = useState([]);
   const [model, setModel] = useState(false);
-
+  // console.log("TESTSTRING",photoData)
   return (
     <div className="App">
       <TopNavigationBar topicData={topicData} state={[favorite, setFavorite]} />

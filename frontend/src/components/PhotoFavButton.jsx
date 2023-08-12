@@ -20,16 +20,16 @@ function PhotoFavButton(props) {
     //If the id value is found in the array then the next time it is clicked it will filter out that value. Else it will add it to the array.
     setFavorite(isFaved ? favorite.filter(word=>word.id !== data.id) : [...favorite, data] 
     );
-    console.log(favorite)
+    // console.log(favorite)
 
   };
   return (
-    <div className="photo-list__fav-icon">
+    // <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg">
         <div onClick={toggleFavorite} ><FavIcon data={props.data} fill={fill} />
         </div>
       </div>
-    </div>
+    // </div>
   );
 }
 
