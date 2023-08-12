@@ -16,3 +16,10 @@
   padding: 7px;
   top: 2px;
 }
+.favorited-icon {
+  fill: #EEEEEE;
+}
+
+.favorited-icon.isFaved {
+  fill: #C80000;
+}

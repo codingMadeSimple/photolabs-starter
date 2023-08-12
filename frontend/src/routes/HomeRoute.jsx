@@ -1,13 +1,25 @@
 import React from 'react';
 
 import '../styles/HomeRoute.scss';
+import TopNavigationBar from './components/TopNavigationBar';
+import PhotoList from 'components/PhotoList';
+import { useState } from 'react';
+
 
 const HomeRoute = () => {
+  // const [favorite, setFavorite] = useState([]);
+
   return (
     <div className="home-route">
-      {/* Insert React */}
+      <TopNavigationBar/>
+      <PhotoList/>
     </div>
   );
 };
 
 export default HomeRoute;
+
+
+// const [favorite, setFavorite]= useState("off");
+// const dark = (light==='off') ? 'dark' : '';
+// const switchLight = () => setLight(light==="on" ? "off" : "on")
