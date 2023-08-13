@@ -3,17 +3,20 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
-
+import { useState } from 'react';
 
 const PhotoDetailsModal = (props) => {
   // console.log("Props-----------------", props.data.similar_photos)
+
+  const [modal, setModal] = useState(false);
+
   const photoArray = [];
   for (const object in props.data.similar_photos) {
     photoArray.push(props.data.similar_photos[object]);
   }
 
 
-  console.log("---------------------PHOTO ARRAY", photoArray);
+  console.log("---------------------IS MODEL FUNCTION HERE", props.closeModal);
   const test = () => {
     // return (<>
     //   <img className="photo-details-modal__images" src={photoArray[0].urls.regular} />
@@ -26,7 +29,7 @@ const PhotoDetailsModal = (props) => {
 
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button">
+      <button onClick={props.closeModal} className="photo-details-modal__close-button">
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className="photo-details-modal__images">

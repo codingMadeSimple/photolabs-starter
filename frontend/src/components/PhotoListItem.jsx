@@ -8,21 +8,26 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 const PhotoListItem = (props) => {
   // console.log(props)
-  const [modal, setModal] = useState(false);
 
-  const toggleModal = function() {
-    console.log("Modal has been toggled");
-    setModal(!modal);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
   };
 
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
-    <div className="photo-list__item" >
+    <div className="photo-list__item">
       <PhotoFavButton data={props.data} state={props.state} />
-        {modal && <PhotoDetailsModal data={props.data} state={props.state}/>}
-      <div onClick={toggleModal}>
+      <div onClick={openModal}>
         <img className="photo-list__image" src={props.data.urls.regular} />
       </div>
+      {modalOpen && (
+        <PhotoDetailsModal data={props.data} state={props.state} closeModal={closeModal} />
+      )}
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={props.data.user.profile} />
         <div className="photo-list__user-info">
