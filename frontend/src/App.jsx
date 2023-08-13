@@ -10,21 +10,8 @@ import topics from './mocks/topics';
 import { useState } from 'react';
 
 
-
-// Note: Rendering a single component to build components in isolation
-
-//THIS IS THE MAIN APP
-// const App = () => {
-
-//   return (
-//     <div className="App">
-//       <PhotoList/>
-//       <TopicList/>
-//     </div>
-//   );
-// };
-
-
+//STILL NEED TO IMPLEMENT THIS
+//Move the logic used to manage the state from the components/Application.js into it.
 
 const App = (props) => {
   const photoData = photos;
