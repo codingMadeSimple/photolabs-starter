@@ -5,7 +5,7 @@ The state object will contain the entire state of the application.
 The updateToFavPhotoIds action can be used to set the favourite photos.
 The setPhotoSelected action can be used when the user selects a photo.
 The onClosePhotoDetailsModal action can be used to close the modal.
-*/ 
+*/
 
 import React from 'react';
 import TopicListItem from './components/TopicListItem';
@@ -16,10 +16,14 @@ import TopicList from 'components/TopicList';
 import TopNavigationBar from './components/TopNavigationBar';
 import photos from './mocks/photos';
 import topics from './mocks/topics';
-import { useState } from 'react';
 import { useReducer } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios'
 
-
+const initialState = {
+  photoData: [],
+  topicData: []
+};
 
 export default function Application(props) {
   const {
@@ -28,17 +32,26 @@ export default function Application(props) {
     updateToFavPhotoIds,
     onLoadTopic,
     onClosePhotoDetailsModal,
-  } = useApplicationData();
+  } = axios.get();
 
+  <button onClick></button>
+
+  const getApiData = () => {
+    axios.get('http://localhost:8001/api/photos')
+    .then(res => {
+      console.log(res.data.content)
+      getApiData(res.data.content)
+    }).catch(err => {
+      console.log(err)
+    })
+  }
   return (
-  {state, updateToFavPhotoIds, setPhotoSelected, onClosePhotoDetailsModal}
+    { state, updateToFavPhotoIds, setPhotoSelected, onClosePhotoDetailsModal }
   );
 }
-const photoData = photos;
-const topicData = topics;
-const [favorite, setFavorite] = useState([]);
-const [model, setModel] = useState(false);
 
+const [model, setModel] = useState(false);
+const [favorite, dispatch] = useReducer(reducer, []);
 
 /* insert app levels actions below */
 export const ACTIONS = {
@@ -48,20 +61,26 @@ export const ACTIONS = {
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
-}
+};
 
-console.log("ACTIONS", ACTIONS)
+// console.log("ACTIONS", ACTIONS)
 function reducer(state, action) {
   switch (action.type) {
+    case ACTIONS.SET_PHOTO_DATA:
+      return { ...state, photoData: action.payload };
+
     case ACTIONS.FAV_PHOTO_ADDED:
-      console.log(ACTIONS.FAV_PHOTO_ADDED)
-    { /* insert all relevant actions as case statements*/ }  
-    }
-    // default:
-    //   throw new Error(
-    //     `Tried to reduce with unsupported action type: ${action.type}`
-    //   );
+      return {
+        ...state,
+      };
+
   }
+
+  // default:
+  //   throw new Error(
+  //     `Tried to reduce with unsupported action type: ${action.type}`
+  //   );
+}
 
 
 

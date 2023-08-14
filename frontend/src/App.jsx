@@ -7,8 +7,8 @@ import TopicList from 'components/TopicList';
 import TopNavigationBar from './components/TopNavigationBar';
 import photos from './mocks/photos';
 import topics from './mocks/topics';
-import { useState } from 'react';
-
+// import { useState } from 'react';
+import { useEffect } from 'react';
 
 //STILL NEED TO IMPLEMENT THIS
 //Move the logic used to manage the state from the components/Application.js into it.
@@ -16,8 +16,8 @@ import { useState } from 'react';
 const App = (props) => {
   const photoData = photos;
   const topicData = topics;
-  const [favorite, setFavorite] = useState([]);
-  const [model, setModel] = useState(false);
+  // const [favorite, setFavorite] = useState([]);
+  // const [model, setModel] = useState(false);
   // console.log("TESTSTRING",photoData)
   return (
     <div className="App">
@@ -28,16 +28,7 @@ const App = (props) => {
 };
 
 
-// const photos = new Array(3).fill(sampleDataForPhotoListItem);
 
-// const createPhotoContainer = function(sampleDataForPhotoListItem){ 
-//   const photos = [];
-//   //Loops through 3 photos
-//   for(let i = 0; i < 3; i ++){
-//     photos.push(<PhotoListItem listItemData={sampleDataForPhotoListItem}/>)
-//   }
-//   return photos
-// }
 
 // const photos = new Array(3)
 

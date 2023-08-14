@@ -4,7 +4,7 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
-  // console.log(props);
+  // console.log(data);
   const [fill, setFill] = useState("#EEEEEE");
   const [favorite, setFavorite] = props.state;
   const data = props.data;
@@ -21,7 +21,6 @@ function PhotoFavButton(props) {
     setFavorite(isFaved ? favorite.filter(word=>word.id !== data.id) : [...favorite, data] 
     );
   };
-  
   return (
     <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg">

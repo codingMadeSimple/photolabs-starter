@@ -6,13 +6,13 @@ import PhotoList from 'components/PhotoList';
 import { useState } from 'react';
 
 
-const HomeRoute = () => {
-  // const [favorite, setFavorite] = useState([]);
+const HomeRoute = (props) => {
+  const [favorite, setFavorite] = useState([]);
 
   return (
     <div className="home-route">
       <TopNavigationBar/>
-      <PhotoList/>
+      <PhotoList />
     </div>
   );
 };
