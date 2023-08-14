@@ -5,7 +5,6 @@
   border-color: lightgray;
   border-style: solid;
   border-radius: 8px;
-  max-width: fit-content;
 }
 
 .photo-list__image {
@@ -47,15 +46,27 @@
   color: #838383;
 }
 
+
 @media only screen and (max-width: 950px) {
   .photo-list__item {
-    margin: 24px;
-    padding: 8px;
+    margin: 12px;
+    padding: 16px;
     border-width: 0.5px;
     border-color: lightgray;
     border-style: solid;
     border-radius: 8px;
-    max-width: fit-content;
+    height: 100%;
+    background-color: #F5F5F5;
   }
+
+.photo-list__image{
+  border-radius: 8px 8px 0px 0px;
+  user-select: none;
+  width: 500px;
+  height: 500px;
+
+}
+
+
 
 }

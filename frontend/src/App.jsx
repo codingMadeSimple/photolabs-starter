@@ -7,7 +7,7 @@ import TopicList from 'components/TopicList';
 import TopNavigationBar from './components/TopNavigationBar';
 import photos from './mocks/photos';
 import topics from './mocks/topics';
-// import { useState } from 'react';
+import { useState } from 'react';
 import { useEffect } from 'react';
 
 //STILL NEED TO IMPLEMENT THIS
@@ -16,9 +16,9 @@ import { useEffect } from 'react';
 const App = (props) => {
   const photoData = photos;
   const topicData = topics;
-  // const [favorite, setFavorite] = useState([]);
-  // const [model, setModel] = useState(false);
-  // console.log("TESTSTRING",photoData)
+  const [favorite, setFavorite] = useState([]);
+  const [model, setModel] = useState(false);
+  console.log("TESTSTRING",photoData)
   return (
     <div className="App">
       <TopNavigationBar topicData={topicData} state={[favorite, setFavorite]} />
