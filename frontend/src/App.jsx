@@ -9,6 +9,8 @@ import photos from './mocks/photos';
 import topics from './mocks/topics';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import useApplicationData2 from './hooks/useApplicationData2'
+
 
 //STILL NEED TO IMPLEMENT THIS
 //Move the logic used to manage the state from the components/Application.js into it.
@@ -16,9 +18,10 @@ import { useEffect } from 'react';
 const App = (props) => {
   const photoData = photos;
   const topicData = topics;
+  const test = useApplicationData2()
+  console.log("This is application data -----------------------", test)
   const [favorite, setFavorite] = useState([]);
   const [model, setModel] = useState(false);
-  console.log("TESTSTRING",photoData)
   return (
     <div className="App">
       <TopNavigationBar topicData={topicData} state={[favorite, setFavorite]} />

@@ -7,8 +7,7 @@ import { useState } from 'react';
 
 
 const HomeRoute = (props) => {
-  const [favorite, setFavorite] = useState([]);
-
+  
   return (
     <div className="home-route">
       <TopNavigationBar/>

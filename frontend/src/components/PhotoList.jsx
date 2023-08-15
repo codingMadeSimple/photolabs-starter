@@ -6,7 +6,8 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 
 const PhotoList = (props) => {
-  console.log("props.photoData-----------------------", props);
+  // console.log("props.photoData-----------------------", props);
+  console.log("props.photoData-------------------", props.photoData)
   if (props.photoData) {
     return (
       <ul className="photo-list">
