@@ -4,6 +4,8 @@ import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import { useState } from 'react';
+import FavBadge from 'components/FavBadge';
+import FavIcon from 'components/FavIcon';
 
 const PhotoDetailsModal = (props) => {
   // console.log("Props-----------------", props.data.similar_photos)
@@ -30,13 +32,18 @@ const PhotoDetailsModal = (props) => {
   return (
     <div className="photo-details-modal">
       <button onClick={props.closeModal} className="photo-details-modal__close-button">
-        <img src={closeSymbol} alt="close symbol" />
+        <img src={closeSymbol} alt="close symbol"/>
       </button>
       <div className="photo-details-modal__images">
+        <div>
+          <FavIcon/>
         <img className="photo-details-modal__image" src={props.data.urls.full} />
-        <header className="photo-details-modal__header">Similar Photos</header>
-        <PhotoList photoArray={photoArray} state={props.state}/>
         
+        </div>
+        <header className="photo-details-modal__header">Similar Photos</header>
+        {/* This photo array beneath comes from teh  */}
+        <PhotoList photoArray={photoArray} state={props.state} />
+
       </div>
     </div>
   );
