@@ -7,11 +7,10 @@ import { useState } from 'react';
 
 
 const HomeRoute = (props) => {
-  
   return (
     <div className="home-route">
       <TopNavigationBar />
-      <PhotoList />
+      <PhotoList photoData={props.data.photoData}/>
     </div>
   );
 };
@@ -31,12 +30,12 @@ export default HomeRoute;
 //   console.log("This is application data -----------------------", test)
 //   //Line 33 saves the favorited photos to the state which gets passed.
 //   const [favorite, setFavorite] = useState([]);
-//   const [model, setModel] = useState(false);
+//   const [modal, setmodal] = useState(false);
 
 //   return (
 //     <div className="home-route">
 //       <TopNavigationBar topicData={topicData} state={[favorite, setFavorite]}/>
-//       <PhotoList photoData={photoData} state={[favorite, setFavorite]} model={[model, setModel]}/>
+//       <PhotoList photoData={photoData} state={[favorite, setFavorite]} modal={[modal, setmodal]}/>
 //       </div>
 //   );
 // };

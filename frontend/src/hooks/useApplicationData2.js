@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 
 const initialState = {
   favorite: [],
-  model: false,
+  modal: false,
   photos: [],
   topics: []
 };
@@ -27,15 +27,15 @@ const ACTIONS = {
 //Reducer with Switch statements
 function reducer(state, action) {
   switch (action.type) {
-    case 'SET_PHOTO_DATA':
+    case ACTIONS.SET_PHOTO_DATA:
       return {
         ...state,
         photoData: action.payload
       };
-    case 'SET_TOPIC_DATA':
+    case ACTIONS.SET_TOPIC_DATA:
       return {
         ...state,
-        photoData: action.payload
+        topicData: action.payload
       };
     case ACTIONS.FAV_PHOTO_ADDED:
       return {
@@ -56,23 +56,21 @@ function reducer(state, action) {
 }
 
 function useApplicationData2(props) {
-
+console.log(props)
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     //Error right here
     fetch("/api/photos")
       .then((response) => response.json())
-      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
+      .then((data) => {console.log(data) ; dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })});
   }, []);
 
   const stateObject = {
     ...state,
     dispatch
   };
-console.log("-----------------STATE OBJECT HERE------------------------", stateObject)
-  // Example actions for photolabs * dispatch({ type: 'FAV_PHOTO_ADDED', payload: { id }}); * dispatch({ type: 'FAV_PHOTO_REMOVED', payload: { id }});
-
+  console.log("-----------------STATE OBJECT HERE------------------------", stateObject)
   return stateObject;
 }
 

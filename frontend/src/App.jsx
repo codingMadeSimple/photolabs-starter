@@ -16,40 +16,8 @@ import HomeRoute from 'routes/HomeRoute';
 //STILL NEED TO IMPLEMENT THIS
 //Move the logic used to manage the state from the components/Application.js into it.
 
-const App = (props) => {
-  //As stated in Create a Side Peak, I've moved the Modal logic to the top App file
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  const photoData = photos;
-  const topicData = topics;
-  const test = useApplicationData2();
-  console.log("This is application data -----------------------", test);
-  const [favorite, setFavorite] = useState([]);
-  const [model, setModel] = useState(false);
-  return (
-    <div className="App">
-      <TopNavigationBar topicData={topicData} state={[favorite, setFavorite]} />
-      <PhotoList photoData={photoData} state={[favorite, setFavorite]} model={[model, setModel]} />
-    </div>
-  );
-};
-
-
-
-
-
-
-
 // const App = (props) => {
-
+//   //As stated in Create a Side Peak, I've moved the Modal logic to the top App file
 //   const [modalOpen, setModalOpen] = useState(false);
 
 //   const openModal = () => {
@@ -60,16 +28,46 @@ const App = (props) => {
 //     setModalOpen(false);
 //   };
 
+//   const photoData = photos;
+//   const topicData = topics;
 //   const test = useApplicationData2();
-
+//   // console.log("This is application data -----------------------", test);
+//   const [favorite, setFavorite] = useState([]);
+//   const [modal, setmodal] = useState(false);
 //   return (
-//     <HomeRoute className="home-route">
+//     <div className="App">
 //       <TopNavigationBar topicData={topicData} state={[favorite, setFavorite]} />
-//       <PhotoList photoData={photoData} state={[favorite, setFavorite]} model={[model, setModel]} />
-//     </HomeRoute>
-
+//       <PhotoList photoData={photoData} state={[favorite, setFavorite]} modal={[modal, setmodal]} />
+//     </div>
 //   );
 // };
+
+
+
+
+
+
+
+const App = (props) => {
+
+
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const test = useApplicationData2();
+console.log("HERE IS THE DATA", test)
+  return (
+    <HomeRoute className="home-route" data={test}/>
+  );
+};
 
 
 // const photos = new Array(3)
@@ -79,3 +77,4 @@ const App = (props) => {
 // ))}
 
 export default App;
+// topicData={topicData} state={[favorite, setFavorite]}

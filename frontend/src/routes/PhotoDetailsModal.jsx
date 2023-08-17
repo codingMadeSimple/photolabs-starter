@@ -18,7 +18,7 @@ const PhotoDetailsModal = (props) => {
   }
 
 
-  console.log("---------------------IS MODEL FUNCTION HERE", props.closeModal);
+  console.log("---------------------IS modal FUNCTION HERE", props.closeModal);
   const test = () => {
     // return (<>
     //   <img className="photo-details-modal__images" src={photoArray[0].urls.regular} />

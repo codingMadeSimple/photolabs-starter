@@ -7,7 +7,7 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 
 const PhotoListItem = (props) => {
-  console.log("photo-list-item-----------------", props)
+  // console.log("photo-list-item-----------------", props)
 
   const [modalOpen, setModalOpen] = useState(false);
 
