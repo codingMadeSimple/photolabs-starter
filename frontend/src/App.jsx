@@ -51,7 +51,6 @@ import HomeRoute from 'routes/HomeRoute';
 const App = (props) => {
 
 
-
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -63,9 +62,9 @@ const App = (props) => {
   };
 
   const test = useApplicationData2();
-console.log("HERE IS THE DATA", test)
+// console.log("HERE IS THE DATA", test)
   return (
-    <HomeRoute className="home-route" data={test}/>
+    <HomeRoute data={test}/>
   );
 };
 

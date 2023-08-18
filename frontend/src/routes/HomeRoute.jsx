@@ -7,10 +7,12 @@ import { useState } from 'react';
 
 
 const HomeRoute = (props) => {
+  // console.log(props, "This is the props from HOME ROUTE------------------")
+  // console.log(props.data.photoData,"THIS IS THE MAIN ROUTE DATA")
   return (
     <div className="home-route">
       <TopNavigationBar />
-      <PhotoList photoData={props.data.photoData}/>
+      <PhotoList photoData={props.data.photoData} reducer={props.data}/>
     </div>
   );
 };

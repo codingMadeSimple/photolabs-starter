@@ -9,19 +9,21 @@ import { useEffect } from 'react';
 
 const initialState = {
   favorite: [],
-  modal: false,
+  modal: null,
   photos: [],
   topics: []
 };
 
 /* insert app levels actions below */
-const ACTIONS = {
+export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
-  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
+  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
+  SET_MODAL_TRUE: 'SET_MODAL_TRUE',
+  SET_MODAL_FALSE: 'SET_MODAL_FALSE'
 };
 
 //Reducer with Switch statements
@@ -38,16 +40,27 @@ function reducer(state, action) {
         topicData: action.payload
       };
     case ACTIONS.FAV_PHOTO_ADDED:
+      console.log(action);
       return {
         ...state,
-        favorite: [...state.favorite, action.payload.id]
+        favorite: [...state.favorite, action.payload]
       };
     case ACTIONS.FAV_PHOTO_REMOVED:
       return {
         ...state,
         favorite: state.favorite.filter(id => id !== action.payload.id)
       };
-      { /* insert all relevant actions as case statements*/ }
+    case ACTIONS.SET_MODAL_TRUE:
+      console.log(action,"----------action----------")
+      return {
+        ...state,
+        modal: action.payload
+      };
+    case ACTIONS.SET_MODAL_FALSE:
+      return {
+        ...state,
+        modal: null
+      };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -56,21 +69,23 @@ function reducer(state, action) {
 }
 
 function useApplicationData2(props) {
-console.log(props)
+  // console.log(props)
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  // const [state, setState] = useState(initialState) 
 
   useEffect(() => {
     //Error right here
     fetch("/api/photos")
       .then((response) => response.json())
-      .then((data) => {console.log(data) ; dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })});
+      .then((data) => { dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }); });
   }, []);
 
   const stateObject = {
     ...state,
     dispatch
   };
-  console.log("-----------------STATE OBJECT HERE------------------------", stateObject)
+  // console.log("-----------------STATE OBJECT HERE------------------------", stateObject)
   return stateObject;
 }
 

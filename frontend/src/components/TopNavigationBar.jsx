@@ -6,7 +6,7 @@ import FavBadge from './FavBadge';
 
 const TopNavigation = (props) => {
   let isFavPhotoExist
-  console.log("NAVBAR", props.state)
+  // console.log("NAVBAR", props.state)
 
   
   //props.state is an array with a length of two. The first index is an array of all favorited objects. The second index should be a setSomething function.

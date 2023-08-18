@@ -4,29 +4,33 @@ import "../styles/PhotoListItem.scss";
 import "components/PhotoFavButton";
 import PhotoFavButton from "components/PhotoFavButton";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
+import { ACTIONS } from "../hooks/useApplicationData2";
 
 
 const PhotoListItem = (props) => {
-  // console.log("photo-list-item-----------------", props)
-
-  const [modalOpen, setModalOpen] = useState(false);
+  console.log("photo-list-item-----------------", props)
+  // console.log(props.data,"--------------------props.data------------photolistitem")
+// console.log(ACTIONS)
+  // const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
-    setModalOpen(true);
+    props.reducer.dispatch({type: ACTIONS.SET_MODAL_TRUE, payload:props.id})
+    // setModalOpen(true);
   };
 
   const closeModal = () => {
-    setModalOpen(false);
+    props.reducer.dispatch({type: ACTIONS.SET_MODAL_FALSE})
+    // setModalOpen(false);
   };
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton data={props.data} state={props.state} />
+      <PhotoFavButton reducer={props.reducer} id={props.id}/>
       <div onClick={openModal} className="photo-profile">
         <img className="photo-list__image" src={props.data.urls.regular} />
       </div>
-      {modalOpen && (
-        <PhotoDetailsModal data={props.data} state={props.state} closeModal={closeModal} />
+      {(props.reducer.modal===props.id) && (
+        <PhotoDetailsModal data={props.data} closeModal={closeModal} reducer={props.reducer}/>
       )}
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={props.data.user.profile} />

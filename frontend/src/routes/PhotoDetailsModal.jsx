@@ -8,9 +8,9 @@ import FavBadge from 'components/FavBadge';
 import FavIcon from 'components/FavIcon';
 
 const PhotoDetailsModal = (props) => {
-  // console.log("Props-----------------", props.data.similar_photos)
+  console.log("Props-----------------", props)
 
-  const [modal, setModal] = useState(false);
+  // const [modal, setModal] = useState(false);
 
   const photoArray = [];
   for (const object in props.data.similar_photos) {
@@ -18,7 +18,7 @@ const PhotoDetailsModal = (props) => {
   }
 
 
-  console.log("---------------------IS modal FUNCTION HERE", props.closeModal);
+  // console.log("---------------------IS modal FUNCTION HERE", props.closeModal);
   const test = () => {
     // return (<>
     //   <img className="photo-details-modal__images" src={photoArray[0].urls.regular} />
@@ -42,7 +42,7 @@ const PhotoDetailsModal = (props) => {
         </div>
         <header className="photo-details-modal__header">Similar Photos</header>
         {/* This photo array beneath comes from teh  */}
-        <PhotoList photoArray={photoArray} state={props.state} />
+        {/* <PhotoList photoArray={photoArray} reducer={props.reducer}/> */}
 
       </div>
     </div>
