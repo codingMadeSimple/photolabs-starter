@@ -2,6 +2,7 @@ import React from 'react';
 import { useCallback, useState } from 'react';
 
 const FavIcon = ({ displayAlert, selected}) => {
+  
   const fillColor = selected ? "#C80000" : "#EEEEEE";
 
   return (

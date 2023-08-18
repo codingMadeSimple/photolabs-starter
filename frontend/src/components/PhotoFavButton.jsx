@@ -22,6 +22,10 @@ function PhotoFavButton(props) {
   //   setFavorite(isFaved ? favorite.filter(word=>word.id !== data.id) : [...favorite, data] 
   //   );
   // };
+
+//On line 32 onClick needs the ternary operator to choose
+//if favorite.includes(payload:props.id) then (use.slice to remove the already favorited item) else add payload:props.id to favorites
+
   return (
     <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg">

@@ -39,8 +39,12 @@ function reducer(state, action) {
         ...state,
         topicData: action.payload
       };
+    case ACTIONS.SELECT_PHOTO:
+      return {
+        ...state,
+        select: true
+      };
     case ACTIONS.FAV_PHOTO_ADDED:
-      console.log(action);
       return {
         ...state,
         favorite: [...state.favorite, action.payload]
@@ -51,7 +55,7 @@ function reducer(state, action) {
         favorite: state.favorite.filter(id => id !== action.payload.id)
       };
     case ACTIONS.SET_MODAL_TRUE:
-      console.log(action,"----------action----------")
+      console.log(action, "----------action----------");
       return {
         ...state,
         modal: action.payload
