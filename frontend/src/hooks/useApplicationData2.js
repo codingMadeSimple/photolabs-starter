@@ -55,7 +55,6 @@ function reducer(state, action) {
         favorite: state.favorite.filter(id => id !== action.payload.id)
       };
     case ACTIONS.SET_MODAL_TRUE:
-      console.log(action, "----------action----------");
       return {
         ...state,
         modal: action.payload

@@ -8,7 +8,7 @@ import { ACTIONS } from "../hooks/useApplicationData2";
 
 
 const PhotoListItem = (props) => {
-  console.log("photo-list-item-----------------", props)
+  // console.log("photo-list-item-----------------", props)
   // console.log(props.data,"--------------------props.data------------photolistitem")
 // console.log(ACTIONS)
   // const [modalOpen, setModalOpen] = useState(false);
